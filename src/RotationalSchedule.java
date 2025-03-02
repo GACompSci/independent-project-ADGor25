@@ -1,16 +1,12 @@
-import java.util.ArrayList;
 
 public class RotationalSchedule {
     private RotationalDay[] rotationalDays;
 
     public RotationalSchedule() {
         rotationalDays = new RotationalDay[7];
-    }
-
-    public void addEventToDay(int dayIndex, Event event) {
-        RotationalDay day = rotationalDays[dayIndex];
-        ArrayList<Event> dayEvents = day.getEvents();
-        dayEvents.add(event);
+        for (int i = 0; i < rotationalDays.length; i++) {
+            rotationalDays[i] = new RotationalDay(i + 1);
+        }
     }
 
     public RotationalDay[] getRotationalDays() {
@@ -18,7 +14,7 @@ public class RotationalSchedule {
     }
 
     public RotationalDay getDay(int dayIndex) {
-        return rotationalDays[dayIndex];
+        return rotationalDays[dayIndex - 1];
     }
 
 }
