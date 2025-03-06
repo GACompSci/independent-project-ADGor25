@@ -1,50 +1,60 @@
+import java.time.DayOfWeek;
 
 public class Event {
+
+    public enum RecurrenceType {
+        NONE,
+        ROTATIONAL,
+        WEEKDAY
+    }
+    
     private String name;
-    private String date;
+    private String date;  
     private String eventType; 
-    private Boolean recurrance;
+    private RecurrenceType recurrenceType; 
     private String startTime; 
     private String endTime; 
     private String color;
-    private String weekDay;
+    private DayOfWeek weekDay;
     private int rotationalDay;
-    private Boolean today;
-
-
-    public Event(String eventName, String eventDate, String typeOfEvent, Boolean eventRecurrance, String eventStartTime, String eventEndTime, String eventColor){
+    
+    public Event(String eventName, String eventDate, String typeOfEvent, 
+                 RecurrenceType recurrenceType, String eventStartTime, 
+                 String eventEndTime, String eventColor, 
+                 DayOfWeek weekDay, int rotationalDay) {
         name = eventName;
         date = eventDate;
         eventType = typeOfEvent;
-        recurrance = eventRecurrance;
+        this.recurrenceType = recurrenceType;
         startTime = eventStartTime;
         endTime = eventEndTime;
         color = eventColor;
+        this.weekDay = weekDay;
+        this.rotationalDay = rotationalDay;
     }
-
+    
     public String getDate() {
         return date;
     }
-
-    public Boolean getToday() {
-        return today;
+    
+    public RecurrenceType getRecurrenceType() {
+        return recurrenceType;
     }
-
-    public String getEventType() {
-        return eventType;
+    
+    public DayOfWeek getWeekDay() {
+        return weekDay;
     }
-
-    public Boolean getReccurance() {
-        return recurrance;
+    
+    public int getRotationalDay() {
+        return rotationalDay;
     }
-
+    
     public String getTime() {
         return startTime + " - " + endTime;
     }
-
+    
     @Override
     public String toString() {
         return name;
     }
-
 }

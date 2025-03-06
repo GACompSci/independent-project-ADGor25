@@ -13,8 +13,8 @@ public class RotationalSchedule {
         return rotationalDays;
     }
 
-    public RotationalDay getDay(int dayIndex) {
-        return rotationalDays[dayIndex - 1];
+    public RotationalDay get(int index) {
+        return rotationalDays[index];
     }
-
+    
 }
